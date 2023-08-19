@@ -13,7 +13,9 @@ draft: true
 
 事前準備時偶然發現 Cloudflare 居然有提供靜態網頁託管服務 {{<NewTabLink href="https://pages.cloudflare.com/" title="Cloudflare Pages">}}，高速、安全、HTTPS 加密、性能指標與分析、提前預覽，重要的是以上優點免費方案通通都有，甭廢話，就你了。
 
-> 雖然有額度上限，但對於部落格而言，綽綽有餘。
+```shell
+雖然有額度上限，但對於部落格而言，綽綽有餘。
+```
 
 因此最終決定以 Hugo + Godaddy + CloudFlare pages 作為出發的裝備。
 

@@ -73,7 +73,7 @@ git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
 
 然後將以下加到主目錄下的 `hugo.toml` 或 `config.toml`（根據 Hugo 版本有所差異）
 
-```shell
+```toml
 theme = "m10c"
 ```
 
@@ -94,8 +94,11 @@ hugo new [setion name]/[article name]
 ```shell
 # 訪問所有文章，包括草稿（draft: true）。
 hugo server -D
+
 # 訪問所有文章，不包括草稿（draft: true）。
 hugo server
 ```
 
 訪問 {{<NewTabLink href="http://localhost:1313/" title="http://localhost:1313/">}}
+
+{{<NextArticle href="/articles/create-blog-2-structure" article="Hugo 自架部落格（二）- 項目結構">}}

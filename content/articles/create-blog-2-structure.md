@@ -7,11 +7,13 @@ draft: false
 ---
 
 ## 前言
+
 ---
 
 若對 MarkDown 語法還不熟悉，可以參考 HackMD 提供的 {{<NewTabLink href="https://hackmd.io/@eMP9zQQ0Qt6I8Uqp2Vqy6w/SyiOheL5N/%2FBVqowKshRH246Q7UDyodFA?type=book" title="MarkDown語法大全">}}。
 
 ## 結構介紹
+
 ---
 
 使用 `hugo new site [project name]` 新增專案後，會在專案內部生成以下項目結構：
@@ -33,7 +35,7 @@ draft: false
 
 存放文章模板，預設有 `archetypes/default.md` 作為初始模板，新增文章時會自動套用。
 
-```shell
+```toml
 # default.md
 ---
 title: "{{ replace .Name "-" " " | title }}"
@@ -47,6 +49,8 @@ draft: true
 ### 二、assets
 
 若有使用 {{<NewTabLink href="https://gohugo.io/hugo-pipes/introduction/" title="Hugo Pipes">}}，需要將 Pipes 會用到的靜態資源都放到 assets 裏。
+
+以 `m10c` 主題為例，若要覆蓋元件樣式，需要在 `assets` 新增 `css/_exrea.scss`。
 
 {{<NewTabLink href="https://discourse.gohugo.io/t/difference-between-asset-and-static-folder/41203" title="Difference between asset and static folder?">}}
 
@@ -79,13 +83,15 @@ hugo new articles/create-blog-1-prepare.md
 
 ### 五、hugo.toml
 
-> 舊版 Hugo 會生成 `config.toml`。
+```shell
+舊版 Hugo 會生成 `config.toml`。
+```
 
 環境參數配置檔，用於設置網站建置參數、模板參數。
 
 以此部落格為範例：
 
-```shell
+```toml
 baseURL = '/'       # 網站網址，預設為絕對路徑，若 relativeURLs = true 則為相對路徑。
 title = 'Shane Lin' # 網站預設標題。
 theme = 'm10c'      # 指定樣式。
@@ -117,7 +123,7 @@ relativeURLs = true # 將網站路徑改為相對路徑。
 
 在 Hugo 中，預設 MarkDown 連結語法會導航本站到目標網站：
 
-```shell
+```md
 [連結名稱](https://google.com "游標顯示")
 ```
 
@@ -131,15 +137,15 @@ relativeURLs = true # 將網站路徑改為相對路徑。
 
 ```
 
-```html
-# HyperLink.html
-<a href="{{ .Get "href" }}" rel="noopener" target="_blank">{{ .Get "title" }}</a>
+```md
+// HyperLink.html
+<a href="{{ .Get "href" }}" rel="noopener" target="\_blank">{{ .Get "title" }}</a>
 ```
 
 在 `.md` 中使用：
 
-```shell
-# 要去掉 {{ 和 }} 內的頭尾空白。
+```md
+// 要去掉 {{ 和 }} 內的頭尾空白。
 {{ <HyperLink href="https://google.com" title="Google"> }}
 ```
 
