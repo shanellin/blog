@@ -79,10 +79,23 @@ theme = "m10c"
 
 接著參照 `./themes/m10c/exampleSite/config.toml` 設置你需要的資訊，如：author、description...等。
 
-### 三、運行專案
+### 三、建立文章
 
 ```shell
+hugo new [setion name]/[article name]
+
+# e.g. hugo new articles/create-blog-1-prepare.md
+# 在 content 資料夾下新增 articles 資料夾
+# 在 articles 資料夾下新增 create-blog-1-prepare.md
+```
+
+### 四、運行專案
+
+```shell
+# 訪問所有文章，包括草稿（draft: true）。
 hugo server -D
+# 訪問所有文章，不包括草稿（draft: true）。
+hugo server
 ```
 
 訪問 {{<NewTabLink href="http://localhost:1313/" title="http://localhost:1313/">}}
