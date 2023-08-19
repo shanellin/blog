@@ -92,11 +92,10 @@ hugo new articles/create-blog-1-prepare.md
 以此部落格為範例：
 
 ```toml
-baseURL = '/'       # 網站網址，預設為絕對路徑，若 relativeURLs = true 則為相對路徑。
+baseURL = 'https://shanelin-blog.com/'   # 網站網址。
 title = 'Shane Lin' # 網站預設標題。
 theme = 'm10c'      # 指定樣式。
 paginate = 10       # 每頁文章數，預設為 10。
-relativeURLs = true # 將網站路徑改為相對路徑。
 
 [taxonomies]        # 要啟用哪些文章分類。
   category = "categories"
