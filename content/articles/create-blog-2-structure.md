@@ -161,3 +161,5 @@ paginate = 10       # 每頁文章數，預設為 10。
 ├── themes
 │   └── m10c
 ```
+
+{{<NextArticle href="/articles/create-blog-3-publish" article="Hugo 自架部落格（三）- 搭配 Godaddy 部署到 Cloudflare Pages">}}
