@@ -2,6 +2,7 @@
 title: "Hugo 自架部落格（三）- 搭配 Godaddy 部署到 Cloudflare Pages"
 categories: ["Frontend"]
 tags: ["Hugo"]
+Keywords: ["Godaddy", "Cloudflare", "Cloudflare Pages"]
 date: 2023-08-20T10:51:41+08:00
 draft: false
 ---

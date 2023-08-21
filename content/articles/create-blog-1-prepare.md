@@ -2,6 +2,7 @@
 title: "Hugo 自架部落格（一）- 準備"
 categories: ["Frontend"]
 tags: ["Hugo"]
+Keywords: ["Hugo", "create blog", "自架部落格", "m10c"]
 date: 2023-08-16T15:41:08+08:00
 draft: false
 ---
