@@ -3,6 +3,7 @@ title: "Hugo 自架部落格（二）- 項目結構"
 categories: ["Frontend"]
 tags: ["Hugo"]
 Keywords: ["Hugo structure", "archetypes", "hugo.toml"]
+images: ["/images/avatars.png"]
 date: 2023-08-19T14:25:48+08:00
 draft: false
 ---

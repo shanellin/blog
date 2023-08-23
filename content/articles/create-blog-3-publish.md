@@ -3,6 +3,7 @@ title: "Hugo 自架部落格（三）- 搭配 Godaddy 部署到 Cloudflare Pages
 categories: ["Frontend"]
 tags: ["Hugo"]
 Keywords: ["Godaddy", "Cloudflare", "Cloudflare Pages"]
+images: ["/images/avatars.png"]
 date: 2023-08-20T10:51:41+08:00
 draft: false
 ---
@@ -74,6 +75,7 @@ npx wrangler pages deploy ./public
 ![cloudflare-overview](/images/cloudflare/cloudflare-overview.png)
 
 ## Godaddy
+---
 
 ### ㄧ、購買域名
 
@@ -127,7 +129,4 @@ npx wrangler pages deploy ./public
 
 最後回到 {{<NewTabLink href="https://dash.cloudflare.com/" title="Dashboard">}} -> `Workers & Pages` -> `Overview` -> `Custom domains`，把生效的域名再次填入，認證成功後即可用 Godaddy 的域名在分頁上看到自己的部落格了。
 
-
-
-
-
+{{<NextArticle href="/articles/create-blog-4-seo" article="Hugo 自架部落格（四）- SEO">}}
