@@ -12,13 +12,13 @@ draft: false
 
 ---
 
-Javascript 寫久了大概都聽過或看過 `原型鏈`、`作用域鏈`、`執行上下文棧`、`this`，但如何將它們兜在一起說個故事，一直都雲裡霧裡的，所以這個系列的主旨就是想了解它們在 `Js Engine`、`Js Runtime` 中所扮演的角色與作用，並在後面幾篇各別聊聊它們。
+Javascript 寫久了大概都聽過或看過 `作用域鏈`、`執行上下文棧`、`原型鏈`、`this`，但如何將它們兜在一起說個故事，一直都雲裡霧裡的，所以這個系列的主旨就是想了解它們在程式運行中所扮演的角色與作用，但在這之前我們先來介紹下 `Js Engine`、`Js Runtime`，再在後面幾篇各別聊聊它們。
 
 ## Js Engine
 
 ---
 
-如今 Js Engine 可說是百花齊放，各大瀏覽器均推出自家引擎，我們就以人氣最高 Chrome 推出的 V8 Engine 作為研究對象吧。
+如今 `Js Engine` 可說是百花齊放，各大瀏覽器均推出自家引擎，我們就以人氣最高 Chrome 推出的 V8 Engine 作為研究對象吧。
 
 先上簡略流程圖：
 
@@ -28,7 +28,7 @@ Javascript 寫久了大概都聽過或看過 `原型鏈`、`作用域鏈`、`執
 
 ### 一、解析器（Parser）
 
-主要用於將 JavaScript 解析成 `詞法單元（Tokens）`，並識別 `語法結構`，最後生成 `抽象語法樹（AST）`，為之後的 `解釋器（Interpreter）` 做準備。
+先透過 `詞法分析` 將 JavaScript 解析成 `詞法單元（Tokens）`，再透過 `語法分析` 識別 `語法結構`，最後生成 `抽象語法樹（AST）`，為之後的 `解釋器（Interpreter）` 做準備。
 
 #### 詞法單元（Tokens）
 
@@ -316,3 +316,5 @@ Hello();
 
 {{<NewTabLink href="https://medium.com/sessionstack-blog/how-does-javascript-actually-work-part-1-b0bacc073cf" title="How JavaScript works: an overview of the engine, the runtime, and the call stack">}}  
 {{<NewTabLink href="https://medium.com/@ericlien86/%E4%B8%80%E6%8E%A2%E7%A9%B6%E7%AB%9Fjavascript-runtime-e4c1b1adb6b4" title="一探究竟javascript runtime">}}
+
+{{<NextArticle href="/articles/know-js-again-2-scope-chain" article="重新認識 Javascript（二）- 作用域鏈">}}
