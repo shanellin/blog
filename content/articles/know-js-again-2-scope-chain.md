@@ -286,9 +286,9 @@ console.dir(fn1);
 但還是有些問題沒有解答：
 
 1. 如何確保程式碼按照正確的順序執行？
-2. 上面作用域鏈圖中的 `fn3's VO` 是什麼？
+2. 上面作用域鏈圖中的 `VO`、`AO` 是什麼？
 
-接下來就讓我們來聊聊 `執行上下文棧`。
+接下來就讓我們來介紹下 `執行上下文棧`。
 
 ## 參考文章
 
@@ -299,3 +299,5 @@ console.dir(fn1);
 {{<NewTabLink href="https://hackmd.io/@Heidi-Liu/note-js201-closure#week-16-JavaScript-%E9%80%B2%E9%9A%8E---%E4%BB%80%E9%BA%BC%E6%98%AF%E9%96%89%E5%8C%85%EF%BC%9F%E6%8E%A2%E8%A8%8E-Closure-amp-Scope-Chain" title="[week 16] JavaScript 進階 - 什麼是閉包？探討 Closure & Scope Chain">}}  
 {{<NewTabLink href="https://juejin.cn/post/6974017383425900558#heading-1" title="你應該知道的執行上下文、調用棧、閉包、this、作用域等之間的關係">}}  
 {{<NewTabLink href="https://github.com/mqyqingfeng/Blog/issues/6" title="JavaScript深入之作用域鏈">}}  
+
+{{<NextArticle href="/articles/know-js-again-3-execution-context" article="重新認識 Javascript（三）- 執行上下文">}}
