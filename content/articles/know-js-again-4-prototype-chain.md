@@ -4,7 +4,7 @@ categories: ["Frontend"]
 tags: ["Javascript"]
 Keywords: ["構造函式", "constructor", "原型對象", "Prototype", "原型對象引用", "＿proto＿", "原型鏈", "Prototype Chain", "new", "class"]
 images: ["/images/avatars.png"]
-date: 2023-09-08T09:43:29+08:00
+date: 2023-09-09T09:43:29+08:00
 draft: false
 ---
 
