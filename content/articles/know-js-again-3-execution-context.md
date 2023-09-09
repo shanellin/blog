@@ -108,7 +108,7 @@ eval 執行上下文與普通函式執行上下文相似，但有幾點不同：
 而以上對象與引用地址的關聯就會存在 `全局變量對象 VO` 中。如以下程式碼：
 
 ```javascript
-let x = ["hello", "Peter"];
+let x = ["hello", "Potter"];
 function sayHello(person) {
   console.log(`hello, ${person[1]}`);
 }
@@ -178,7 +178,7 @@ Array.prototype.slice.call(arguments);
 接下來也讓我們示例 `活動變量對象 AO`，如以下程式碼：
 
 ```javascript
-let x = ["hello", "Peter"];
+let x = ["hello", "Potter"];
 function sayHello(person) {
   console.log(`hello, ${person[1]}`);
 }
@@ -201,7 +201,7 @@ sayHello(x);
 
    ```javascript
    function checkMainCharacter() {
-     let person = "Peter";
+     let person = "Potter";
      let friendList = ["Ronald", "Hermione"];
      let book = { title: "Harry Potter" };
      console.log({ person, friendList, book });
@@ -238,7 +238,7 @@ sayHello(x);
 以下方程式碼為例：
 
 ```javascript
-let x = ["hello", "Peter"];
+let x = ["hello", "Potter"];
 function sayHello(person) {
   console.log(`hello, ${person[1]}`);
   function sayBye(person) {
@@ -276,9 +276,9 @@ sayHello(x);
 1. 開發時，定義的對象明明沒有為其添加方法，但為何可以使用？
 
    ```javascript
-   let person = "Peter";
+   let person = "Potter";
    console.log(person.length); // 5
-   console.log(person.toUpperCase()); // PETER
+   console.log(person.toUpperCase()); // Potter
    ```
 
 2. 該如何讓對象間共享屬性與方法？
@@ -295,3 +295,5 @@ sayHello(x);
 {{<NewTabLink href="https://vue3js.cn/interview/JavaScript/context_stack.html#%E4%B8%80%E3%80%81%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87" title="面試官：JavaScript中執行上下文和執行棧是什麼？">}}  
 {{<NewTabLink href="https://github.com/mqyqingfeng/Blog/issues/4" title="JavaScript深入之執行上下文棧">}}  
 {{<NewTabLink href="https://github.com/mqyqingfeng/Blog/issues/5" title="JavaScript深入之變量對象">}}
+
+{{<NextArticle href="/articles/know-js-again-4-prototype-chain" article="重新認識 Javascript（四）- 原型鏈">}}

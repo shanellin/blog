@@ -56,16 +56,16 @@ draft: false
 
 ```javascript
 // 全局作用域
-var person = "Peter";
+var person = "Potter";
 
 function hello() {
   // 函式作用域
   console.log(`Hello, ${person}`);
 }
 
-if (person === "Peter") {
+if (person === "Potter") {
   // 區塊作用域
-  let girl = "Hermione"
+  let girl = "Hermione";
   hello();
 }
 console.log(`Hello, ${girl}`); // girl is not defined
@@ -80,11 +80,11 @@ console.log(`Hello, ${girl}`); // girl is not defined
 以下方程式碼為例：
 
 ```javascript
-console.log(x);  // undefined
+console.log(x); // undefined
 var x = 10;
-console.log(x);  // 10
+console.log(x); // 10
 
-foo();  // "Hello, world!"
+foo(); // "Hello, world!"
 function foo() {
   console.log("Hello, world!");
 }
@@ -95,14 +95,14 @@ function foo() {
 以下方程式碼為例：
 
 ```javascript
-console.log(x);  // x is not defined
+console.log(x); // x is not defined
 let x = 10;
-console.log(x);  // 10
+console.log(x); // 10
 
-foo();  // foo is not defined
+foo(); // foo is not defined
 let foo = () => {
   console.log("Hello, world!");
-}
+};
 ```
 
 ## 作用域規則（Scope Rules）
@@ -148,7 +148,7 @@ let foo = () => {
 ### 二、示例說明
 
 ```javascript
-var person = "Peter";
+var person = "Potter";
 function hello() {
   console.log(`Hello, ${person}`);
 }
@@ -158,19 +158,19 @@ function sayHello() {
   console.log(`Bye, ${person}`);
 }
 sayHello();
-// Hello, Peter
+// Hello, Potter
 // Bye, Ronald
 ```
 
-為何輸出結果會是 `Hello, Peter` 然後接 `Bye, Ronald` 呢？讓我們按照步驟說明：
+為何輸出結果會是 `Hello, Potter` 然後接 `Bye, Ronald` 呢？讓我們按照步驟說明：
 
-1. 首先在全局作用域中，定義了一個值為 "Peter" 的變量 person。
+1. 首先在全局作用域中，定義了一個值為 "Potter" 的變量 person。
 
-2. 定義函式 hello，根據 `變量查找規則`，分析時發現函式作用域中並無變量 person，因此向上層作用域（即全局作用域）查找，最終找到 "Peter"。（注意：是定義時的上層，而不是被呼叫時的上層）。
+2. 定義函式 hello，根據 `變量查找規則`，分析時發現函式作用域中並無變量 person，因此向上層作用域（即全局作用域）查找，最終找到 "Potter"。（注意：是定義時的上層，而不是被呼叫時的上層）。
 
 3. 定義函式 sayHello，在函式作用域中定義了一個同名變量 person 並賦值為 "Ronald"，接著調用函式 hello。
 
-4. 雖然 sayHello 重新定義了變量 person，但根據靜態作用域，函式在定義時就已經確定，不受調用位置的影響，因此 hello 最終輸出 `Hello, Peter`。
+4. 雖然 sayHello 重新定義了變量 person，但根據靜態作用域，函式在定義時就已經確定，不受調用位置的影響，因此 hello 最終輸出 `Hello, Potter`。
 
 5. 執行 console.log，根據 `內部變量優先規則` 輸出 `Bye, Ronald`。
 
@@ -192,8 +192,8 @@ sayHello();
 
 3. 動態作用域：也就是上面提及的 `this`，JS 可以通過 .call()、.apply() 或 .bind() 方法改變 `this` 指向，從而影響函式內部的作用域鏈。
 
-> 當初在比較 `作用域規則` 和 `作用域鏈` 時自己也很困惑，兩者不都做一樣的事情嗎？  
->   
+> 當初在比較 `作用域規則` 和 `作用域鏈` 時自己也很困惑，兩者不都做一樣的事情嗎？
+>
 > 其實 `作用域規則` 和 `作用域鏈` 確實是同一個東西來著的，只是解釋階段的 `作用域規則` 是根據詞法所生成，並無法完全確定執行階段的邏輯，所以在執行階段時會先複製解釋階段的 `作用域規則`，接著根據環境生成變量對象，最後完善自身的 `作用域鏈`。
 
 所以函式在解釋、執行階段中都會用 `作用域鏈 [[scopes]]` 紀錄與自身相關的父級函式的作用域，如以下程式碼：
@@ -277,6 +277,117 @@ console.dir(fn1);
 
 ![js-scope-chain](/images/js/js-scope-chain.png)
 
+## 閉包（Closure）
+
+---
+
+說完 `作用域鏈` 讓我們來講講 `閉包`，雖然它聽起來不是很重要，但日常開發時卻經常會用到。
+
+### 一、什麼是閉包？
+
+`閉包` 是指在 JS 中調用某函式時，即使其父作用域已被銷毀，依舊可以訪問到父作用域的變量。簡單來說 `閉包` 就是開闢了一個空間，用來存放私有變量及函式，並且不會被自動回收記憶體，而此空間正是上面 `作用域鏈` 提到的 `[[Scopes]]`。
+
+如以下程式碼：
+
+```javascript
+function sayHello() {
+  let hello = "Hello, Potter";
+  function executeFn() {
+    console.log(hello);
+  }
+  return executeFn;
+}
+let sayHelloFn = sayHello();
+sayHelloFn(); 
+console.dir(sayHelloFn);
+```
+
+輸出結果如下：
+
+```javascript
+// console.dir(sayHelloFn);
+ƒ executeFn()
+├─ ...
+├─ arguments: null
+├─ name: "executeFn"
+└─ [[Scopes]]:
+   ├─ Closure (sayHello) {hello: 'Hello, Potter'}
+   ├─ Script {sayHelloFn: ƒ}
+   └─ Global
+```
+
+### 二、閉包的用途？
+
+1. 封裝數據：防止外部直接訪問或修改內部私有變量。
+
+2. 模塊化編程：強制其他開發者按照規則訪問或修改私有變量。
+
+如以下程式碼：
+
+```javascript
+function createPerson(name) {
+  return {
+    getName: function () {
+      return name;
+    },
+    sayHello: function () {
+      console.log(`Hello, ${name}`);
+    },
+  };
+}
+const person = createPerson("Potter");
+console.log(person.getName()); // Potter
+person.sayHello(); // Hello, Potter
+console.log(person.name); // undefined
+```
+
+而日常最常見的用途就是 `Redux 的 createStore`，如以下程式碼：
+
+```javascript
+export default function createStore(reducer, preloadedState, enhancer) {
+  // ...
+  let currentReducer = reducer;
+  let currentState = preloadedState;
+  function getState() {
+    return currentState;
+  }
+  function dispatch(action) {
+    // ....
+    return action;
+  }
+  return {
+    dispatch,
+    subscribe,
+    getState,
+    replaceReducer,
+    [$$observable]: observable,
+  };
+}
+```
+
+僅能透過 `getState` 讀取 `currentState`，若要修改則要透過 `dispatch`。
+
+### 三、閉包的缺點？
+
+所謂 `成也蕭何，敗也蕭何`，`閉包` 的缺點也出在 `[[Scopes]]`，既然它不會自動被回收，那也代表若是使用不當，將造成 `記憶體洩漏`。如以下程式碼：
+
+```javascript
+function sayHello() {
+  let hello = "Hello, Potter";
+  function executeFn() {
+    console.log(hello);
+  }
+  return executeFn;
+}
+let sayHelloFn = sayHello();
+```
+
+`sayHelloFn` 使用了閉包，卻沒有使用。要解決其實也很簡單：
+
+```javascript
+sayHelloFn = null;
+```
+
 ## 總結
 
 ---
@@ -299,5 +410,6 @@ console.dir(fn1);
 {{<NewTabLink href="https://hackmd.io/@Heidi-Liu/note-js201-closure#week-16-JavaScript-%E9%80%B2%E9%9A%8E---%E4%BB%80%E9%BA%BC%E6%98%AF%E9%96%89%E5%8C%85%EF%BC%9F%E6%8E%A2%E8%A8%8E-Closure-amp-Scope-Chain" title="[week 16] JavaScript 進階 - 什麼是閉包？探討 Closure & Scope Chain">}}  
 {{<NewTabLink href="https://juejin.cn/post/6974017383425900558#heading-1" title="你應該知道的執行上下文、調用棧、閉包、this、作用域等之間的關係">}}  
 {{<NewTabLink href="https://github.com/mqyqingfeng/Blog/issues/6" title="JavaScript深入之作用域鏈">}}  
+{{<NewTabLink href="https://nissentech.org/why-do-we-need-closure/" title="為什麼我們需要閉包(Closure)？它是冷知識還是真有用途？">}}
 
 {{<NextArticle href="/articles/know-js-again-3-execution-context" article="重新認識 Javascript（三）- 執行上下文">}}
