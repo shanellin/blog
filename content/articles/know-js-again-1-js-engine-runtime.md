@@ -243,6 +243,12 @@ Hello();
 
 用於存儲數據，如：對象、數組、變量...等。
 
+> 基本數據類型：  
+> Undefined、Null、Boolean、Number、String、Symbol、BigInt，儲存於 `棧內存（Stack Memory）`。
+>
+> 引用數據類型：  
+> Object、function、Array、Date...等，同時儲存於 `棧內存（Stack Memory）` 和 `堆內存（Heap Memory）`，取值時會從 `堆內存（Heap Memory）` 取得引用，然後透過引用找到 `棧內存（Stack Memory）` 中的實際資料。
+
 ### 三、Web api
 
 瀏覽器提供的 api 接口，用於處理瀏覽器環境中的異步操作，常見的有：

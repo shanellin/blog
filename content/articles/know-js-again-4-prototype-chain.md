@@ -446,3 +446,5 @@ let user = new Person("Potter");
 {{<NewTabLink href="https://github.com/mqyqingfeng/Blog/issues/13" title="JavaScript深入之new的模擬實現">}}  
 {{<NewTabLink href="https://segmentfault.com/a/1190000022776150" title="JS中的構造函式、原型、原型鏈">}}  
 {{<NewTabLink href="https://ithelp.ithome.com.tw/articles/10194356" title="重新認識 JavaScript: Day 25 原型與繼承">}}
+
+{{<NextArticle href="/articles/know-js-again-5-this" article="重新認識 Javascript（五）- this">}}
